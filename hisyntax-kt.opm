@@ -42,11 +42,11 @@
    \_replfromto {continue@}{\n}  {\z K{continue}\z O{@#1}}%   continue@...
    \_replfromto {break@}{\n}    {\z K{break}\z O{@#1}}%       break@...
    % Special characters
+   \_replthis{;}{\z C{;}} % semi-collon
    \_replthis{?:}{\n\o?:\n} % elvis operator
    \_edef\_tmpa {()\_string{\_string}+-*/=[]<>,:\_pcent\_string&|!}% non-letters
    \_ea \_foreach \_tmpa 
       \_do {\_replthis{#1}{\n\o#1\n}}
-   
    %
    \_foreach % keywords
       {as}{as?}{break}{class}{continue}{do}{else}{false}{for}{fun}%
@@ -98,8 +98,6 @@
       {windowed}{withIndex}{zip}{zipWithNext}{contract}%
       \_do {\_replthis{.#1\n}{.\z F{#1}}%
            \_replthis{\n#1\n}{\z F{#1}}}% invoke operators ( and { begin with \n 
-   %
-   \_replthis{;}{\z C{;}} % semi-collon
    %
    \_replthis{.}{\n.\n} % numbers
    \_foreach 0123456789
