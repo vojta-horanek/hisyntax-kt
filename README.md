@@ -16,3 +16,7 @@ Using `\hisyntax{kotlin}` is also possible.
 
 ## Example
 <img width="455" alt="example" src="https://github.com/vojta-horanek/hisyntax-kt/assets/12630566/10f302bb-a737-4c09-82ba-fd86987e6011">
+
+## Licence
+
+This software is in public domain.
