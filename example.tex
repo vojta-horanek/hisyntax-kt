@@ -1,0 +1,88 @@
+\useOpTeX
+\input hisyntax-kt.opm
+
+\begtt \hisyntax{kotlin}
+package com.example.kotlin
+
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
+
+@JvmInline
+value class ValueClass(
+    val property: String = "value",
+)
+
+class Test : Comparable<Any<Of<Aha>>> {
+    override fun compareTo(other: Any): Int {
+        println("Ok, $other == ${other.toString()}")
+        TODO("Not yet implemented")
+    }
+
+    fun doWork(vararg extra: Int): Long {
+        // comment
+        val a: String? = null ?: "Or??"
+        println(a!!) // unwrap!
+    
+        loop@ for (i in 1..100) { /* <- loop */
+            for (j in 1..100) {
+                // FIXME: Never breaks...
+                if (false) break@loop
+            }
+        }
+        
+        val a = 400_222
+        val m = 34e3;
+        val b = a + 2
+        return (listOf(a, b) + Unit.crazy<Int>({}, *extra))
+            .reversed()
+            .sorted()
+            .mapNotNull { toBe ->
+                if (toBe == 1) {
+                    return@mapNotNull null;
+                }
+
+                toBe.toLong()
+            }
+            .fold(a.toLong()) { acc, v -> v + acc * b }
+    }
+
+    /**
+     * Function does literary nothing useful.
+     *
+     * @param block ignored and never called
+     * @param extra extra
+     *
+     * @return a list created from the [extra] param
+     */
+    @OptIn(ExperimentalContracts::class)
+    inline fun <reified T : Any> Unit.crazy(
+        crossinline block: T.() -> Unit = {},
+        vararg extra: Int,
+    ): List<Int> {
+        contract {
+            callsInPlace(block, InvocationKind.AT_MOST_ONCE)
+        }
+
+        let {
+            ValueClass::class.isValue
+        }
+        
+        return extra.toList()
+    }
+
+    companion object {
+        private const val TAG = "Test"
+
+        fun getInstance(): Test = Test()
+    }
+}
+
+val <T> List<T>.extensionProperty
+    get() = 123 + ((this[0] as? Int) ?: 0)
+
+fun createList(): List<Int> {
+    return emptyList() // TODO: Useless, remove
+}
+\endtt
+\bye
