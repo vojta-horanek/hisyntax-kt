@@ -18,6 +18,7 @@ Using `\hisyntax{kotlin}` is also possible.
 
 To get a quick overview of the style, you can use the `example.tex` file in this repository.
 The screenshot bellow shows what the compiled document should look like.
+
 <img width="455" alt="example" src="https://github.com/vojta-horanek/hisyntax-kt/assets/12630566/10f302bb-a737-4c09-82ba-fd86987e6011">
 
 ## Licence
