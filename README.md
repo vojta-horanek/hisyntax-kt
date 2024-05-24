@@ -1,3 +1,9 @@
+------
+> ⚠️ Kotlin syntax higlighting is [now](https://github.com/olsak/OpTeX/commit/a985d8f879f0948c4ac4ae6c2ed94c18951c64c5) part of
+> the official OpTeX distribution.
+> Using this macro directly is no longer required.
+------
+
 # hisyntax-kt
 Kotlin syntax highliting for [OpTeX](https://github.com/olsak/OpTeX).
 
